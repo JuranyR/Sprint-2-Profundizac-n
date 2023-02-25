@@ -1,0 +1,43 @@
+.searchSeat{
+    outline: none;
+    border:0;
+    border-radius: 20px;
+    background-color: #9e2479;
+    color: white;
+    display: flex;
+    justify-content: center;
+    height: 45px;
+    width: 100%;
+    margin-bottom: 20px;
+    align-items: center;
+    gap: 15px;
+}
+
+.title-detail-flight {
+    display: flex;
+    justify-content: space-between;
+    h3 {
+        margin:0 0 35px 0;
+    }
+    button {
+        outline:0;
+        border: 3px solid #9e2479;
+        color: #9e2479;
+        background: transparent;
+        padding: 0px 25px;
+        font-weight: 700;
+        border-radius: 30px;
+        height: 40px;
+    }
+}
+
+@media (max-width: 500px) {
+    .title-detail-flight {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        button{
+            margin-bottom: 25px;
+        }
+    }
+}

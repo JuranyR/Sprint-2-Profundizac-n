@@ -1,0 +1,70 @@
+.select-flight {
+    border-radius: 12px;
+    border:1px solid #cceccc;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    box-shadow:  9px 13px 13px -4px rgba(204, 204, 204, 0.7);
+    gap:30px;
+    align-items: center;
+    padding: 20px;
+    .column {
+        display: flex;
+        justify-content: start;
+        width: 100%;
+        align-items: center;
+        gap:0 25px;
+        &.direction {
+            flex-direction: column;
+            align-items: baseline;
+        }
+        .bag {
+            color:black;
+            border: 1px solid #cceccc;
+            background-color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 15px;
+            border-radius: 3px;
+            flex-direction: column;
+            min-width: 160px;
+            p{
+                margin: 0;
+            }
+            &.isActive{
+                background-color: #9e2479;
+                color: white;
+                border: 1px solid #9e2479; 
+            }
+        }
+        figure{
+            position: relative;
+            display: inline-block;
+            margin: 0;
+            vertical-align: middle;
+            img.line-end{
+                right: 0;
+                position: absolute;
+            }
+            p {
+                margin: 0;
+                text-align: center;
+            }
+        }
+        span {
+            font-size: 21px;
+            font-weight: 700;
+        }
+    }
+}
+
+@media (max-width: 760px) {
+    .select-flight {
+        .column {
+            flex-direction: column;
+            .bag{
+                margin-bottom: 10px;
+            }
+        }
+    }
+}

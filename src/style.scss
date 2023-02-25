@@ -1,0 +1,14 @@
+@import 'components/search-tickets-page/search-tickets/search-ticket.scss';
+@import 'components/search-tickets-page/payment/payment.scss';
+@import 'components/search-tickets-page/services-availables/services-availables.scss';
+@import 'components/detail-flight-page/select-flight/selec-flight.scss';
+@import 'components/detail-flight-page/reservation/reservation.scss';
+@import 'components/detail-flight-page/cost-flight/cost-flight.scss';
+@import 'components/detail-flight-page/optional-services/optional-services.scss';
+@import 'components/detail-flight-page/detail-flight-page.scss';
+@import 'components/select-seats-page/select-seat/select-seat.scss';
+body{
+    box-sizing: border-box;
+    margin: 40px !important;
+    padding: 0;
+}
