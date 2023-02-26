@@ -41,7 +41,7 @@ const ServicesAvailables = () => {
             <section className="sevices-availables">
                 {
                     services.map(elem=>(
-                        <div className="card">
+                        <div className="card" key={elem.title}>
                             <figure>
                                 <img src={elem.img} alt="sevices"/>
                             </figure>

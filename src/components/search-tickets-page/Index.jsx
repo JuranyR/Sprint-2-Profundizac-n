@@ -3,10 +3,10 @@ import SearchTickets from "./search-tickets/Search-Tickets";
 import Payment from "./payment/Payment";
 import ServicesAvailables from "./services-availables/Services-availables";
 
-const SearchTicketsPage = () => {
+const SearchTicketsPage = ({formValue, setFormValues}) => {
     return(
         <>
-            <SearchTickets />
+            <SearchTickets  formValue={formValue}  setFormValues={setFormValues}/>
             <Payment />
             <ServicesAvailables />
         </>

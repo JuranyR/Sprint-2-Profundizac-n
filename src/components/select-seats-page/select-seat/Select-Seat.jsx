@@ -39,7 +39,7 @@ const SelectSeats = () => {
             <p className="title-center">Salida rápida</p>
             {seats.map((item, i) => (
                 <>
-                    {i==5?<p className="title-center">Estandar</p>:''}
+                    {i===5?<p className="title-center">Estandar</p>:''}
                     <section className="select-seat mb-3">
                         <div className="row-seats">
                             <button className="seat selected" onClick={()=>clickSeat(item.row[0])}></button>

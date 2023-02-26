@@ -7,9 +7,13 @@
     .passenger{
         display: flex;
         justify-content: space-between;
+        .column{
+            display: flex;
+            flex-direction: column; 
+        }
     }
     .information{
-        max-width: 20%;
+         max-width: 180px;
         .cities{
             display: flex;
             align-items: end;
