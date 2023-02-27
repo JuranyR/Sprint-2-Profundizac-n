@@ -14,13 +14,23 @@ const seats= [
 ];
 
 
-const SelectSeats = () => {
+const SelectSeats = ({fligthValue, cantPassengers,setSeatSelected, type, seatSelected,allSeats}) => {
+    
     const clickSeat=(seat)=>{
-        console.log(seat);
+        if(seatSelected.length < cantPassengers){
+            const newSeats=[...seatSelected,seat]
+            setSeatSelected(type==='origen'?{...allSeats,seatOrigen:newSeats}:{...allSeats,seatDestiny:newSeats})
+        }
+        if(seatSelected.includes(seat)){
+            const filterSeats= seatSelected.filter(current=> current !== seat);
+            setSeatSelected(type==='origen'?{...allSeats,seatOrigen:filterSeats}:{...allSeats,seatDestiny:filterSeats})
+        }
     }
 
     return(
         <>
+            {seatSelected &&
+                <>
             <section className="select-seat">
                 <div className="row-seats">
                     <span className="cube">A</span>
@@ -37,26 +47,41 @@ const SelectSeats = () => {
                 </div>
             </section>
             <p className="title-center">Salida rápida</p>
-            {seats.map((item, i) => (
-                <>
-                    {i===5?<p className="title-center">Estandar</p>:''}
-                    <section className="select-seat mb-3">
-                        <div className="row-seats">
-                            <button className="seat selected" onClick={()=>clickSeat(item.row[0])}></button>
-                            <button className="seat available"></button>
-                            <button className="seat unavailable"></button>
-                        </div>
-                        <span className="cube mx-2">
-                            {i+1}
-                        </span>
-                        <div className="row-seats">
-                            <button className="seat selected"></button>
-                            <button className="seat available"></button>
-                            <button className="seat unavailable"></button>
-                        </div>
-                    </section>
+            {seats.map((item, i) => {
+                const intersection = item.row.filter(element => fligthValue.Seats.includes(element));
+                const isUnavailable=(item)=>{
+                    if(intersection.includes(item)){
+                        return "seat unavailable"
+                    }
+                    if(seatSelected.includes(item)){
+                        return "seat selected"
+                    }
+                    return "seat available"
+                }
+
+                return(
+                    <div key={i}>
+                        {i===5?<p className="title-center">Estandar</p>:''}
+                        <section className="select-seat mb-3">
+                            <div className="row-seats">
+                                <button className={isUnavailable(item.row[0])} disabled={isUnavailable(item.row[0])==="seat unavailable"?true:false} onClick={()=>clickSeat(item.row[0])}></button>
+                                <button className={isUnavailable(item.row[1])} disabled={isUnavailable(item.row[1])==="seat unavailable"?true:false} onClick={()=>clickSeat(item.row[1])}></button>
+                                <button className={isUnavailable(item.row[2])} disabled={isUnavailable(item.row[2])==="seat unavailable"?true:false} onClick={()=>clickSeat(item.row[2])}></button>
+                            </div>
+                            <span className="cube mx-2">
+                                {i+1}
+                            </span>
+                            <div className="row-seats">
+                                <button className={isUnavailable(item.row[3])} disabled={isUnavailable(item.row[3])==="seat unavailable"?true:false} onClick={()=>clickSeat(item.row[3])}></button>
+                                <button className={isUnavailable(item.row[4])} disabled={isUnavailable(item.row[4])==="seat unavailable"?true:false}  onClick={()=>clickSeat(item.row[4])}></button>
+                                <button className={isUnavailable(item.row[5])} disabled={isUnavailable(item.row[5])==="seat unavailable"?true:false} onClick={()=>clickSeat(item.row[5])}></button>
+                            </div>
+                        </section>
+                    </div>
+                )
+            })
+            }
                 </>
-            ))
             }
         </>
     )

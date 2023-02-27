@@ -3,13 +3,12 @@ import { useNavigate } from "react-router-dom";
 import SelectFlight from "./select-flight/Select-Flight";
 import Reservation from './reservation/Reservation';
 import CostFlight from "./cost-flight/Cost-Flight";
-import OptionalServices from "./optional-services/Optional-Reservation";
 import axios from 'axios'
 import { DateTime } from "luxon";
 
 const baseFlightsURL= 'http://localhost:3000/flights' 
 
-const DetailFlighhtPage = ({formValue, fligthValue, setFligthValue}) => {
+const DetailFlighhtPage = ({formValue, fligthValue, setFligthValue,setCostValue, costValue}) => {
     const navigate = useNavigate();
     const [flightsOD, setFlightsOD]= useState([])
     const [flightsDO, setFlightsDO]= useState([])
@@ -45,14 +44,22 @@ const DetailFlighhtPage = ({formValue, fligthValue, setFligthValue}) => {
                 <div className="col-lg-9">
                     <div className="title-detail-flight">
                         <h3><b>Vuelo de salida</b></h3>
-                        <button onClick={()=> navigate('/')}>Cambiar vuelo</button>
+                        <button onClick={()=> {
+                            navigate('/');
+                            setCostValue({
+                                tarifaBase:null,
+                                tarifaBaseDescuento:null,
+                                ivaTarifa:null,
+                                total:null
+                            });
+                        }}>Cambiar vuelo</button>
                     </div>
                     <h4>{DateTime.fromISO(formValue.dateLeave).toLocaleString({weekday:'long', month:'short', day: 'numeric', year:'numeric' })}</h4>
                     <p className="text-black-50 mb-4">{formValue.origen} a {formValue.destiny}</p>
                     <p><b>Selección de horarios y equipaje</b></p>
                     {
                         flightsOD.map(item=>(
-                            <SelectFlight flight={item} type={'origen'}  setFligthValue={setFligthValue} setActiveOrigen={setActiveOrigen} activeOrigen={activeOrigen} key={item.id}/>
+                            <SelectFlight flight={item} type={'origen'}  setFligthValue={setFligthValue} setActiveOrigen={setActiveOrigen} activeOrigen={activeOrigen} fligthValue={fligthValue} key={item.id}/>
                         ))
                     }
                     <>
@@ -61,13 +68,21 @@ const DetailFlighhtPage = ({formValue, fligthValue, setFligthValue}) => {
                             <>
                                 <div className="title-detail-flight mt-4">
                                     <h3><b>Vuelo de regreso</b></h3>
-                                    <button onClick={()=> navigate('/')}>Cambiar vuelo</button>
+                                    <button onClick={()=> {
+                                        navigate('/');
+                                        setCostValue({
+                                            tarifaBase:null,
+                                            tarifaBaseDescuento:null,
+                                            ivaTarifa:null,
+                                            total:null
+                                        });
+                                    }}>Cambiar vuelo</button>
                                 </div>
                                 <h4>{DateTime.fromISO(formValue.dateArrive).toLocaleString({weekday:'long', month:'short', day: 'numeric', year:'numeric' })}</h4>
                                 <p className="text-black-50 mb-4">{formValue.destiny} a {formValue.origen}</p>
                                 <p><b>Selección de horarios y equipaje</b></p>
                                 {flightsDO.map(item=>(
-                                    <SelectFlight flight={item}  setFligthValue={setFligthValue} type={'destiny'} activeDestiny={activeDestiny} setActiveDestiny={setActiveDestiny} key={item.id}/>
+                                    <SelectFlight flight={item}  setFligthValue={setFligthValue} type={'destiny'} activeDestiny={activeDestiny} setActiveDestiny={setActiveDestiny} fligthValue={fligthValue} key={item.id}/>
                                 ))
                                 }
                             </>
@@ -75,11 +90,10 @@ const DetailFlighhtPage = ({formValue, fligthValue, setFligthValue}) => {
                     </>
                 </div>
                 <div className="col-lg-3">
-                    <Reservation formValue={formValue}/>
-                    <CostFlight />
-                    <OptionalServices />
+                    <Reservation formValue={formValue} fligthValue={fligthValue}/>
+                    <CostFlight fligthValue={fligthValue} travelRounded={formValue.travelRounded} setCostValue={setCostValue} costValue={costValue} />
                     {activeButtonSeat &&
-                        <button className="searchSeat mt-3">
+                        <button className="searchSeat mt-3" onClick={()=>navigate('/seats')}>
                             Seleccionar asientos
                         </button>
                     }

@@ -7,13 +7,19 @@ import SelectSeatsPage from './components/select-seats-page/Index';
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 const App = () => {
+    const [costValue, setCostValue]= useState({
+        tarifaBase:null,
+        tarifaBaseDescuento:null,
+        ivaTarifa:null,
+        total:null
+    })
     const [fligthValue, setFligthValue]= useState({
-        bag:null,
-        price:null
+        origen:null,
+        destiny: null,
     })
     const [formValue, setFormValues]= useState({
         travelRounded: null,
-        origen:'El dorado International Airport',
+        origen:'El Dorado International Airport',
         codeOrigen:'BOG',
         destiny:'Olaya Herrera Airport',
         codeDestiny:'EOH',
@@ -27,8 +33,8 @@ const App = () => {
         <BrowserRouter>
             <Routes>
                 <Route path="/" element={<SearchTicketsPage formValue={formValue}  setFormValues={setFormValues} />} />
-                <Route path="/detail" element={<DetailFlighhtPage formValue={formValue} fligthValue={fligthValue} setFligthValue={setFligthValue}/>} />
-                <Route path="/seats" element={<SelectSeatsPage />} />
+                <Route path="/detail" element={<DetailFlighhtPage formValue={formValue} fligthValue={fligthValue} setFligthValue={setFligthValue} setCostValue={setCostValue} costValue={costValue} /> } />
+                <Route path="/seats" element={<SelectSeatsPage  formValue={formValue} fligthValue={fligthValue} costValue={costValue} setCostValue={setCostValue} />} />
             </Routes>
         </BrowserRouter>
     )

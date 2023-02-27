@@ -8,32 +8,33 @@ import { DateTime } from "luxon";
 const bags=[
     {
         bag:"1 objeto personal",
-        price:546
+        priceBag:546
     },
     {
         bag:"Equipaje de mano",
-        price:1084
+        priceBag:1084
     },
     {
         bag:"Equipaje 25kg",
-        price:1945
+        priceBag:1945
     }
 ]
-const SelectFlight = ({flight,type, setFligthValue, activeOrigen, setActiveOrigen, setActiveDestiny, activeDestiny}) => {
+const SelectFlight = ({flight,type, setFligthValue, activeOrigen, setActiveOrigen, setActiveDestiny, activeDestiny,fligthValue}) => {
     
     let objectDuration;
     if(flight){
         objectDuration= DateTime.fromMillis(flight.dateArrive).diff(DateTime.fromMillis(flight.dateLeaved), ['hours', 'minutes']).toObject()
     }
     
-    const selectSeat = (item,typeFlight,flightId)=>{
-        const key= item.bag+'-'+flightId;
+    const selectSeat = (item,typeFlight,flight)=>{
+        const key= item.bag+'-'+flight.id;
         if(typeFlight==='origen'){
             setActiveOrigen([key])
+            setFligthValue({...fligthValue,origen:{...flight,...item}})  
         }else{
             setActiveDestiny([key])
+            setFligthValue({...fligthValue,destiny:{...flight,...item}})  
         }      
-        setFligthValue({...item})  
     }
     
     return(
@@ -60,10 +61,10 @@ const SelectFlight = ({flight,type, setFligthValue, activeOrigen, setActiveOrige
                             else {isActive= activeDestiny.includes(item.bag+'-'+flight.id)}
                             
                             return (
-                                <button key={item.bag}  className={isActive?'bag isActive':'bag'} onClick={()=>selectSeat(item, type, flight.id)}>
+                                <button key={item.bag}  className={isActive?'bag isActive':'bag'} onClick={()=>selectSeat(item, type, flight)}>
                                     <img src={isActive?BagWhite:BagBlack} />
                                     <p>{item.bag}</p>
-                                    <p><b>$ {item.price} MXN</b></p>
+                                    <p><b>$ {item.priceBag} MXN</b></p>
                                 </button>
                             )
                         })
