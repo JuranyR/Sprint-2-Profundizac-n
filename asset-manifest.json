@@ -1,0 +1,35 @@
+{
+  "files": {
+    "main.css": "/Sprint-2-Profundizac-n/static/css/main.5cbe7eac.css",
+    "main.js": "/Sprint-2-Profundizac-n/static/js/main.91cf39a2.js",
+    "static/media/avion.jpg": "/Sprint-2-Profundizac-n/static/media/avion.1b73e6d76dc1ab3e2fd8.jpg",
+    "static/media/farmacias.svg": "/Sprint-2-Profundizac-n/static/media/farmacias.0dc7d907d2af70ad51dd72fcc290d62b.svg",
+    "static/media/paypal.svg": "/Sprint-2-Profundizac-n/static/media/paypal.da5a8ec472f937245e1c2a3d25d4af00.svg",
+    "static/media/walmart.svg": "/Sprint-2-Profundizac-n/static/media/walmart.3955695954410ef818cf817705b5f5be.svg",
+    "static/media/Visa.svg": "/Sprint-2-Profundizac-n/static/media/Visa.a3bed91609d5612973358b45064062f2.svg",
+    "static/media/Mastercard.svg": "/Sprint-2-Profundizac-n/static/media/Mastercard.c40902531eecab3fdf569e1c45bfc2f5.svg",
+    "static/media/Amex.svg": "/Sprint-2-Profundizac-n/static/media/Amex.94e9b8cd41a109b35206446470bca05b.svg",
+    "static/media/oxxo.svg": "/Sprint-2-Profundizac-n/static/media/oxxo.4dfe16f95d2a6a75fd1224e66014403f.svg",
+    "static/media/7-eleven.svg": "/Sprint-2-Profundizac-n/static/media/7-eleven.bdfde21882e15a6ce3b7df4a7e7d67e1.svg",
+    "static/media/travel.svg": "/Sprint-2-Profundizac-n/static/media/travel.c2a328721fe8546224d709b7a7b11ad2.svg",
+    "static/media/group.svg": "/Sprint-2-Profundizac-n/static/media/group.b6967f0d815ea507032e9d76d4cc1c48.svg",
+    "static/media/car.svg": "/Sprint-2-Profundizac-n/static/media/car.542e77288448dad0b802c207dd306438.svg",
+    "static/media/briefcase.svg": "/Sprint-2-Profundizac-n/static/media/briefcase.429fd611a0f9c345e6819aa71c3fab6a.svg",
+    "static/media/briefcase-white.svg": "/Sprint-2-Profundizac-n/static/media/briefcase-white.b11bf6b6ed248bf950f96839354498d0.svg",
+    "index.html": "/Sprint-2-Profundizac-n/index.html",
+    "static/media/hotel.svg": "/Sprint-2-Profundizac-n/static/media/hotel.5a383634adf9614e72380cd4b50ca301.svg",
+    "static/media/chevron-down.svg": "/Sprint-2-Profundizac-n/static/media/chevron-down.7289c051634f7036d728238cfadfc0db.svg",
+    "static/media/plane.svg": "/Sprint-2-Profundizac-n/static/media/plane.0ad7de1c49042ac598593c96010d3c12.svg",
+    "static/media/plus.svg": "/Sprint-2-Profundizac-n/static/media/plus.508b063ec5e6c9b2a123902898068d83.svg",
+    "static/media/line_start.svg": "/Sprint-2-Profundizac-n/static/media/line_start.2227060b440f06311e975d3398b1bf91.svg",
+    "static/media/line_end.svg": "/Sprint-2-Profundizac-n/static/media/line_end.7b8d7ed809ff865379be4465c07ac42f.svg",
+    "static/media/minus.svg": "/Sprint-2-Profundizac-n/static/media/minus.f32574a01bdd65f8e7853c565fcf438d.svg",
+    "static/media/inventory.svg": "/Sprint-2-Profundizac-n/static/media/inventory.9595378bebab95ea831c8d1df007d761.svg",
+    "main.5cbe7eac.css.map": "/Sprint-2-Profundizac-n/static/css/main.5cbe7eac.css.map",
+    "main.91cf39a2.js.map": "/Sprint-2-Profundizac-n/static/js/main.91cf39a2.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.5cbe7eac.css",
+    "static/js/main.91cf39a2.js"
+  ]
+}
