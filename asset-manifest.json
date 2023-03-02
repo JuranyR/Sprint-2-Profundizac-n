@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/Sprint-2-Profundizac-n/static/css/main.5cbe7eac.css",
-    "main.js": "/Sprint-2-Profundizac-n/static/js/main.91cf39a2.js",
+    "main.js": "/Sprint-2-Profundizac-n/static/js/main.856ac7b9.js",
     "static/media/avion.jpg": "/Sprint-2-Profundizac-n/static/media/avion.1b73e6d76dc1ab3e2fd8.jpg",
     "static/media/farmacias.svg": "/Sprint-2-Profundizac-n/static/media/farmacias.0dc7d907d2af70ad51dd72fcc290d62b.svg",
     "static/media/paypal.svg": "/Sprint-2-Profundizac-n/static/media/paypal.da5a8ec472f937245e1c2a3d25d4af00.svg",
@@ -26,10 +26,10 @@
     "static/media/minus.svg": "/Sprint-2-Profundizac-n/static/media/minus.f32574a01bdd65f8e7853c565fcf438d.svg",
     "static/media/inventory.svg": "/Sprint-2-Profundizac-n/static/media/inventory.9595378bebab95ea831c8d1df007d761.svg",
     "main.5cbe7eac.css.map": "/Sprint-2-Profundizac-n/static/css/main.5cbe7eac.css.map",
-    "main.91cf39a2.js.map": "/Sprint-2-Profundizac-n/static/js/main.91cf39a2.js.map"
+    "main.856ac7b9.js.map": "/Sprint-2-Profundizac-n/static/js/main.856ac7b9.js.map"
   },
   "entrypoints": [
     "static/css/main.5cbe7eac.css",
-    "static/js/main.91cf39a2.js"
+    "static/js/main.856ac7b9.js"
   ]
 }
