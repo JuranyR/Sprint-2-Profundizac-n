@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React from "react";
 import lineStart from '../../../images/line_start.svg';
 import lineEnd from '../../../images/line_end.svg';
 import BagBlack from '../../../images/briefcase.svg';
@@ -46,8 +46,8 @@ const SelectFlight = ({flight,type, setFligthValue, activeOrigen, setActiveOrige
                         <span>{DateTime.fromMillis(flight.dateLeaved).toLocaleString({  hour: '2-digit', minute: '2-digit', hour12: true })}</span>
                         <figure>
                             <p>{objectDuration.hours} h: {objectDuration.minutes} min</p>
-                            <img src={lineStart} />
-                            <img className="line-end" src={lineEnd} />
+                            <img src={lineStart} alt=""/>
+                            <img className="line-end" src={lineEnd} alt=""/>
                             <p>{flight.scales}</p>
                         </figure>
                         <span>{DateTime.fromMillis(flight.dateArrive).toLocaleString({  hour: '2-digit', minute: '2-digit', hour12: true })}</span>
@@ -62,7 +62,7 @@ const SelectFlight = ({flight,type, setFligthValue, activeOrigen, setActiveOrige
                             
                             return (
                                 <button key={item.bag}  className={isActive?'bag isActive':'bag'} onClick={()=>selectSeat(item, type, flight)}>
-                                    <img src={isActive?BagWhite:BagBlack} />
+                                    <img src={isActive?BagWhite:BagBlack} alt=""/>
                                     <p>{item.bag}</p>
                                     <p><b>$ {item.priceBag} MXN</b></p>
                                 </button>

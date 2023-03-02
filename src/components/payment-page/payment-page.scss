@@ -1,0 +1,12 @@
+.formPayment {
+    background: url('../../images/avion.jpg') no-repeat center;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: -40px;
+    height: 100vh;
+    form {
+        max-width: 50%;
+    }
+}

@@ -10,12 +10,14 @@ import Passengers from '../passegers/Passengers';
 import Swal from 'sweetalert2';
 import { useNavigate } from "react-router-dom";
 
+
 const SearchTickets = ({formValue, setFormValues}) => {
     const navigate = useNavigate();
     const [showModalOrigin, setShowModalOrigen] = useState(false);
     const [showModalDestiny, setShowModalDestiny] = useState(false);
     const [showModalPssengers, setShowModalPssengers] = useState(false);
     const [origin, setOrigin] = useState();
+    const codeOfert= "OFERT4"
 
     const handleModalOrigin = () => setShowModalOrigen(!showModalOrigin);
     const handleModalDestiny = () => setShowModalDestiny(!showModalDestiny);
@@ -45,8 +47,18 @@ const SearchTickets = ({formValue, setFormValues}) => {
             alertError('Valide que seleccinó viaje redondo o sencillo');
             return false
         }
+        if(values.travelRounded==="true" && !values.dateArrive){
+            alertError('Valide que seleccinó una fecha de regreso');
+            return false 
+        }
+
         if(values.passengers.Adult===0 && values.passengers.child===0 && values.passengers.baby===0){
             alertError('Valide que seleccinó una cantidad de pasajeros');
+            return false 
+        }
+
+        if(values.code && values.code.toUpperCase() !== codeOfert){
+            alertError('Ingrese un código valido');
             return false 
         }
 
@@ -137,19 +149,19 @@ const SearchTickets = ({formValue, setFormValues}) => {
                     <div className="row">
                         <div className="col-md-6">
                             <div className="form-floating mb-3">
-                                <input type="date" className="form-control" id="floatingInputLeave" name="dateLeave" onChange={e => onChangeValue(e)}/>
+                                <input type="date" className="form-control" min={new Date().toISOString().split("T")[0]} id="floatingInputLeave" name="dateLeave" onChange={e => onChangeValue(e)}/>
                                 <label htmlFor="floatingInputLeave">Salida</label>
                             </div>
                         </div>
                         <div className="col-md-6">
                             <div className="form-floating mb-3">
-                                <input type="date" className="form-control" id="floatingInputArrive"  name="dateArrive" onChange={e => onChangeValue(e)}/>
+                                <input type="date" className="form-control" min={new Date().toISOString().split("T")[0]} id="floatingInputArrive"  name="dateArrive" onChange={e => onChangeValue(e)}/>
                                 <label htmlFor="floatingInputArrive">Regreso</label>
                             </div>
                         </div>
                     </div>
                     <div className="row">
-                        <div className="col-md-6">
+                        <div className="col-md-6 d-flex align-items-center">
                             <button className="select" onClick={()=>handleModalPssengers()} >Pasajeros
                                 <span>{formValue.passengers.Adult} Adultos, {formValue.passengers.child} Niños, {formValue.passengers.baby} bebes</span>
                                 <img className="icon" src={Flecha} alt="flecha" />
@@ -157,7 +169,7 @@ const SearchTickets = ({formValue, setFormValues}) => {
                         </div>
                         <div className="col-md-6">
                             <div className="form-floating mb-3">
-                                <input type="text" className="form-control" id="floatingCode" placeholder="-- -- -- --" onChange={e => {}} />
+                                <input type="text" className="form-control" id="floatingCode" placeholder="-- -- -- --" name="code" onChange={e => onChangeValue(e)} />
                                 <label htmlFor="floatingCode">¿Tienes un código de promoción?</label>
                             </div>
                         </div>
